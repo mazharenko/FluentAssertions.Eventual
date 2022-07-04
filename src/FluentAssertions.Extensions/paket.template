@@ -1,0 +1,4 @@
+type project
+licenseExpression CC0-1.0
+dependencies
+  framework: netstandard2.1

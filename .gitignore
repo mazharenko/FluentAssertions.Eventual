@@ -1,0 +1,13 @@
+[Oo]bj/
+[Bb]in/
+*.suo
+
+
+.idea/
+.vscode/
+.vs/
+
+*.DotSettings.user
+
+.paket/
+paket-files/

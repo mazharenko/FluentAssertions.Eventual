@@ -1,0 +1,7 @@
+STORAGE: NONE
+RESTRICTION: == netstandard2.1
+NUGET
+  remote: https://api.nuget.org/v3/index.json
+    FluentAssertions (6.7)
+    FSharp.Core (6.0.5)
+    JetBrains.Annotations (2022.1)
