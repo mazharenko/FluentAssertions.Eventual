@@ -57,14 +57,14 @@ public class AttemptsEnumerator : IEnumerator<Attempt>, IAsyncEnumerator<Attempt
 		if (!stopwatch.IsRunning)
 			stopwatch.Start();
 		
-		if (stopwatch.Elapsed > timeout)
-			return false;
-
 		if (attempt == InitialAttempt)
 		{
 			attempt = new Attempt(attempt.Number + 1, stopwatch.Elapsed);
 			return true;
 		}
+
+		if (stopwatch.Elapsed > timeout)
+			return false;
 
 		if (!assertionScope.HasFailures())
 			return false;
