@@ -1,4 +1,8 @@
 type project
+id mazharenko.FluentAssertions.Extensions
+authors mazharenko
+repositoryUrl https://github.com/mazharenko/FluentAssertions.Extensions
 licenseExpression CC0-1.0
+licenseUrl https://licenses.nuget.org/CC0-1.0
 dependencies
   framework: netstandard2.1
