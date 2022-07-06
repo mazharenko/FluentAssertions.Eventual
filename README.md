@@ -5,7 +5,7 @@
 # Extensions for FluentAssertions
 
 Interactive README in mybinder:\
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mazharenko/FluentAssertions.Extensions/HEAD?urlpath=tree/README.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mazharenko/FluentAssertions.Extensions/HEAD?urlpath=lab/tree/README.ipynb)
 
 Also in nbviewer:\
 [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/mazharenko/FluentAssertions.Extensions/tree/HEAD/docs/README.ipynb)
