@@ -1,3 +1,5 @@
+[![Nuget package](https://img.shields.io/nuget/v/mazharenko.FluentAssertions.Extensions.svg?label=csharp&logo=nuget)](https://www.nuget.org/packages/mazharenko.FluentAssertions.Extensions/)
+[![Nuget package](https://img.shields.io/nuget/v/mazharenko.FluentAssertions.Extensions.FSharp.svg?label=fsharp&logo=nuget)](https://www.nuget.org/packages/mazharenko.FluentAssertions.Extensions.FSharp/)
 
 [![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](LICENSE)
 
