@@ -3,6 +3,6 @@ source https://api.nuget.org/v3/index.json
 storage: none
 framework: auto-detect
 
-nuget FluentAssertions ~> 6.7.0
+nuget FluentAssertions ~> 6.7
 nuget FSharp.Core >= 6.0.0
 nuget JetBrains.Annotations >= 2022.0.0
