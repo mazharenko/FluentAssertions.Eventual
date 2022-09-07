@@ -7,9 +7,9 @@ open FluentAssertions.Execution;
 
 module EventualAssertions =
     type EventualAssertionsBuilder(timeout: TimeSpan, delay: TimeSpan) =
-        member __.Zero() = ()
-        member __.Delay f = f
-        member __.Run f =
+        member _.Zero() = ()
+        member _.Delay f = f
+        member _.Run f =
             use scope = new AssertionScope()
             let stopwatch = Stopwatch.StartNew()            
             let rec repeat() =
@@ -24,9 +24,9 @@ module EventualAssertions =
             repeat()
             
     type EventualAssertionsBuilderAsync(timeout: TimeSpan, delay: TimeSpan) =
-        member __.Zero() = async.Zero()
-        member __.Delay f = f
-        member __.Run f =
+        member _.Zero() = async.Zero()
+        member _.Delay f = f
+        member _.Run f =
             async {
                 use scope = new AssertionScope()
                 let stopwatch = Stopwatch.StartNew()            
@@ -43,7 +43,7 @@ module EventualAssertions =
                 do! f()
                 do! repeat()
             }
-        member __.Return f = f
+        member _.Return f = f
             
         
     let eventually timeout delay = EventualAssertionsBuilder(timeout, delay) 
