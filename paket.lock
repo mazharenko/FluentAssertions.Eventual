@@ -5,3 +5,6 @@ NUGET
     FluentAssertions (6.7)
     FSharp.Core (6.0.5)
     JetBrains.Annotations (2022.1)
+GITHUB
+  remote: vostok/commons.time
+    Vostok.Commons.Time/TimeBudget.cs (988ca88de58dfcf272c27824efa52ab195628ab4)

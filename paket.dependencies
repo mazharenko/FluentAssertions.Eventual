@@ -6,3 +6,4 @@ framework: auto-detect
 nuget FluentAssertions ~> 6.7
 nuget FSharp.Core >= 6.0.0
 nuget JetBrains.Annotations >= 2022.0.0
+github vostok/commons.time Vostok.Commons.Time/TimeBudget.cs

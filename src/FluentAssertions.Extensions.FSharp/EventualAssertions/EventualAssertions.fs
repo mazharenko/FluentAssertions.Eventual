@@ -11,21 +11,26 @@ module EventualAssertions =
         member _.Delay f = f
 
         member _.Run f =
-            use scope = new AssertionScope()
-            let stopwatch = Stopwatch.StartNew()
+            let success =
+                using (new AssertionScope()) (fun scope ->
+                    let stopwatch = Stopwatch.StartNew()
 
-            let rec repeat () =
-                if (not <| scope.HasFailures()
-                    || stopwatch.Elapsed > timeout) then
-                    ()
-                else
-                    Thread.Sleep delay
-                    scope.Discard() |> ignore
-                    f ()
-                    repeat ()
+                    let rec repeat () =
+                        if (not <| scope.HasFailures()) then
+                            true
+                        elif (stopwatch.Elapsed > timeout) then
+                            scope.Discard() |> ignore
+                            false
+                        else
+                            scope.Discard() |> ignore
+                            Thread.Sleep delay
+                            f ()
+                            repeat ()
 
-            f ()
-            repeat ()
+                    f()
+                    repeat ())
+
+            if (not <| success) then f ()
 
     type EventualAssertionsBuilderAsync(timeout: TimeSpan, delay: TimeSpan) =
         member _.Zero() = async.Zero()
@@ -33,23 +38,29 @@ module EventualAssertions =
 
         member _.Run f =
             async {
-                use scope = new AssertionScope()
-                let stopwatch = Stopwatch.StartNew()
-
-                let rec repeat () =
+                let! success =
                     async {
-                        if (not <| scope.HasFailures()
-                            || stopwatch.Elapsed > timeout) then
-                            ()
-                        else
-                            do! Async.Sleep delay
-                            scope.Discard() |> ignore
-                            do! f ()
-                            do! repeat ()
-                    }
+                        use scope = new AssertionScope()
+                        let stopwatch = Stopwatch.StartNew()
 
-                do! f ()
-                do! repeat ()
+                        let rec repeat () =
+                            async {
+                                if (not <| scope.HasFailures()) then
+                                    return true
+                                elif (stopwatch.Elapsed > timeout) then
+                                    scope.Discard() |> ignore
+                                    return false
+                                else
+                                    scope.Discard() |> ignore
+                                    do! Async.Sleep delay
+                                    do! f ()
+                                    return! repeat ()
+                            }
+                        do! f()
+                        return! repeat ()
+                    }
+                if (not <| success) then
+                    do! f ()
             }
 
         member _.Return f = f

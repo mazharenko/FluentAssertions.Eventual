@@ -1,94 +1,125 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions.Execution;
-using JetBrains.Annotations;
+using Vostok.Commons.Time;
 
 namespace mazharenko.FluentAssertions.Extensions.Eventual;
 
-[PublicAPI]
-public class AttemptsEnumerator : IEnumerator<Attempt>, IAsyncEnumerator<Attempt>
+internal class AttemptsEnumerator : IEnumerator<Attempt>, IAsyncEnumerator<Attempt>
 {
+	private enum State
+	{
+		Initial,
+		Waiting,
+		LastTry
+	}
+	
 	private readonly TimeSpan timeout;
 	private readonly TimeSpan delay;
-	private readonly AssertionScope assertionScope;
-	private readonly Stopwatch stopwatch = new();
-
-	private static readonly Attempt InitialAttempt = new(0, TimeSpan.Zero);
-	private Attempt attempt = InitialAttempt;
 	
-	internal AttemptsEnumerator(string? context, TimeSpan timeout, TimeSpan delay)
+	private State state = State.Initial;
+	private AssertionScope? assertionScope;
+	private TimeBudget timeBudget;
+
+	internal AttemptsEnumerator(TimeSpan timeout, TimeSpan delay)
 	{
 		this.timeout = timeout;
 		this.delay = delay;
-		assertionScope = context is null ? new AssertionScope() : new AssertionScope(context);
+		
+		assertionScope = new AssertionScope();
+		Current = new Attempt(0, TimeSpan.Zero);
+		timeBudget = TimeBudget.CreateNew(timeout);
 	}
 
 	public bool MoveNext()
 	{
-		if (!stopwatch.IsRunning)
-			stopwatch.Start();
+		timeBudget.Start();
 		
-		if (stopwatch.Elapsed > timeout)
-			return false;
-
-		if (attempt == InitialAttempt)
+		switch (state)
 		{
-			attempt = new Attempt(attempt.Number + 1, stopwatch.Elapsed);
-			return true;
+			case State.Initial:
+				Current = new Attempt(Current.Number + 1, timeBudget.Elapsed);
+				state = State.Waiting;
+				return true;
+			case State.Waiting:
+				if (assertionScope is null || !assertionScope.HasFailures())
+					return false;
+				if (timeBudget.HasExpired)
+				{
+					assertionScope.Discard();
+					assertionScope.Dispose();
+					assertionScope = null;
+					state = State.LastTry;
+					Current = new Attempt(Current.Number + 1, timeBudget.Elapsed);
+					return true;
+				}
+				assertionScope.Discard();
+				
+				Thread.Sleep(delay);
+				
+				Current = new Attempt(Current.Number + 1, timeBudget.Elapsed);
+				return true;
+			case State.LastTry:
+				return false;
+			default:
+				throw new ArgumentOutOfRangeException();
 		}
-
-		if (!assertionScope.HasFailures())
-			return false;
-		
-		attempt = new Attempt(attempt.Number + 1, stopwatch.Elapsed);
-		assertionScope.Discard();
-		
-		Thread.Sleep(delay);
-		
-		return true;
 	}
-
+	
 	public async ValueTask<bool> MoveNextAsync()
 	{
-		if (!stopwatch.IsRunning)
-			stopwatch.Start();
+		timeBudget.Start();
 		
-		if (attempt == InitialAttempt)
+		switch (state)
 		{
-			attempt = new Attempt(attempt.Number + 1, stopwatch.Elapsed);
-			return true;
+			case State.Initial:
+				Current = new Attempt(Current.Number + 1, timeBudget.Elapsed);
+				state = State.Waiting;
+				return true;
+			case State.Waiting:
+				if (assertionScope is null || !assertionScope.HasFailures())
+					return false;
+				if (timeBudget.HasExpired)
+				{
+					assertionScope.Discard();
+					assertionScope.Dispose();
+					assertionScope = null;
+					state = State.LastTry;
+					Current = new Attempt(Current.Number + 1, timeBudget.Elapsed);
+					return true;
+				}
+				assertionScope.Discard();
+
+				await Task.Delay(delay).ConfigureAwait(false);
+				
+				Current = new Attempt(Current.Number + 1, timeBudget.Elapsed);
+				return true;
+			case State.LastTry:
+				return false;
+			default:
+				throw new ArgumentOutOfRangeException();
 		}
-
-		if (stopwatch.Elapsed > timeout)
-			return false;
-
-		if (!assertionScope.HasFailures())
-			return false;
-		
-		attempt = new Attempt(attempt.Number + 1, stopwatch.Elapsed);
-		assertionScope.Discard();
-		
-		await Task.Delay(delay).ConfigureAwait(false);
-		
-		return true;
 	}
 
 	public void Reset()
 	{
-		assertionScope.Discard();
+		assertionScope?.Discard();
+		Current = new Attempt(0, TimeSpan.Zero);
+		timeBudget = TimeBudget.CreateNew(timeout);
+		state = State.Initial;
 	}
+	public Attempt Current { get; private set; }
 
-	public Attempt Current => attempt;
 
 	object IEnumerator.Current => Current;
 
 	public void Dispose()
 	{
-		assertionScope.Dispose();
+		assertionScope?.Dispose();
+		assertionScope = null;
 	}
 
 	public ValueTask DisposeAsync()
