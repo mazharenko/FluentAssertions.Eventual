@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using mazharenko.FluentAssertions.Extensions.Eventual;
 
-namespace mazharenko.FluentAssertions.Extensions;
+namespace mazharenko.FluentAssertions.Eventual;
 
 [PublicAPI]
 public static class EventualAssertions

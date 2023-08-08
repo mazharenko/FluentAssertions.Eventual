@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using JetBrains.Annotations;
 
-namespace mazharenko.FluentAssertions.Extensions.Eventual;
+namespace mazharenko.FluentAssertions.Eventual;
 
 [PublicAPI]
 public class Attempts : IEnumerable<Attempt>, IAsyncEnumerable<Attempt>

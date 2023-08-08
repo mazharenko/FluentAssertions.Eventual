@@ -1,4 +1,4 @@
-﻿namespace mazharenko.FluentAssertions.Extensions
+﻿namespace mazharenko.FluentAssertions.Eventual
 
 open System
 open System.Diagnostics

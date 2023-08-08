@@ -1,0 +1,6 @@
+type project
+id mazharenko.FluentAssertions.Eventual
+authors mazharenko
+repositoryUrl https://github.com/mazharenko/FluentAssertions.Eventual
+licenseExpression CC0-1.0
+licenseUrl https://licenses.nuget.org/CC0-1.0

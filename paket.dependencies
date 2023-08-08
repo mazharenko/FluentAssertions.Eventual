@@ -1,9 +1,10 @@
 source https://api.nuget.org/v3/index.json
 
 storage: none
-framework: auto-detect
+framework: netstandard2.0
 
-nuget FluentAssertions ~> 6.7
+nuget FluentAssertions >= 6.7.0
 nuget FSharp.Core >= 6.0.0
 nuget JetBrains.Annotations >= 2022.0.0
+nuget Microsoft.Bcl.AsyncInterfaces >= 7.0.0
 github vostok/commons.time Vostok.Commons.Time/TimeBudget.cs

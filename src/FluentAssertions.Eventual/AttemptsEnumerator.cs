@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using FluentAssertions.Execution;
 using Vostok.Commons.Time;
 
-namespace mazharenko.FluentAssertions.Extensions.Eventual;
+namespace mazharenko.FluentAssertions.Eventual;
 
 internal class AttemptsEnumerator : IEnumerator<Attempt>, IAsyncEnumerator<Attempt>
 {
