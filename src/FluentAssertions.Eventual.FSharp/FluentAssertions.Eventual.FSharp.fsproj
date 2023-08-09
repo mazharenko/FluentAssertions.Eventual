@@ -5,7 +5,7 @@
     <Version>3.0.0</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <RootNamespace>mazharenko.FluentAssertions.Eventual</RootNamespace>
-    <AssemblyName>FluentAssertions.Eventual.FSharp</AssemblyName>
+    <AssemblyName>mazharenko.FluentAssertions.Eventual.FSharp</AssemblyName>
     <WarnOn>3390;$(WarnOn)</WarnOn>
   </PropertyGroup>
   <ItemGroup>

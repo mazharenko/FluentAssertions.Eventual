@@ -6,7 +6,7 @@
     <LangVersion>10.0</LangVersion>
     <Nullable>enable</Nullable>
     <RootNamespace>mazharenko.FluentAssertions.Eventual</RootNamespace>
-    <AssemblyName>FluentAssertions.Eventual</AssemblyName>
+    <AssemblyName>mazharenko.FluentAssertions.Eventual</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\..\paket-files\vostok\commons.time\Vostok.Commons.Time\TimeBudget.cs">
