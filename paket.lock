@@ -5,12 +5,75 @@ NUGET
     FluentAssertions (6.11)
       System.Threading.Tasks.Extensions (>= 4.5)
     FSharp.Core (7.0.400)
+    Humanizer.Core (2.14.1) - copy_local: false
     JetBrains.Annotations (2023.2)
     Microsoft.Bcl.AsyncInterfaces (7.0)
       System.Threading.Tasks.Extensions (>= 4.5.4)
-    System.Runtime.CompilerServices.Unsafe (6.0)
+    Microsoft.CodeAnalysis.Analyzers (3.3.4) - copy_local: false
+    Microsoft.CodeAnalysis.Common (4.6) - copy_local: false
+      Microsoft.CodeAnalysis.Analyzers (>= 3.3.4)
+      System.Collections.Immutable (>= 7.0)
+      System.Memory (>= 4.5.5)
+      System.Reflection.Metadata (>= 7.0)
+      System.Runtime.CompilerServices.Unsafe (>= 6.0)
+      System.Text.Encoding.CodePages (>= 7.0)
+      System.Threading.Tasks.Extensions (>= 4.5.4)
+    Microsoft.CodeAnalysis.CSharp (4.6) - copy_local: false
+      Microsoft.CodeAnalysis.Common (4.6)
+    Microsoft.CodeAnalysis.CSharp.Workspaces (4.6) - copy_local: false
+      Humanizer.Core (>= 2.14.1)
+      Microsoft.CodeAnalysis.Common (4.6)
+      Microsoft.CodeAnalysis.CSharp (4.6)
+      Microsoft.CodeAnalysis.Workspaces.Common (4.6)
+    Microsoft.CodeAnalysis.Workspaces.Common (4.6) - copy_local: false
+      Humanizer.Core (>= 2.14.1)
+      Microsoft.Bcl.AsyncInterfaces (>= 7.0)
+      Microsoft.CodeAnalysis.Common (4.6)
+      System.Composition (>= 7.0)
+      System.IO.Pipelines (>= 7.0)
+      System.Threading.Channels (>= 7.0)
+    System.Buffers (4.5.1) - copy_local: false
+    System.Collections.Immutable (7.0) - copy_local: false
+      System.Memory (>= 4.5.5)
+      System.Runtime.CompilerServices.Unsafe (>= 6.0)
+    System.Composition (7.0) - copy_local: false
+      System.Composition.AttributedModel (>= 7.0)
+      System.Composition.Convention (>= 7.0)
+      System.Composition.Hosting (>= 7.0)
+      System.Composition.Runtime (>= 7.0)
+      System.Composition.TypedParts (>= 7.0)
+    System.Composition.AttributedModel (7.0) - copy_local: false
+    System.Composition.Convention (7.0) - copy_local: false
+      System.Composition.AttributedModel (>= 7.0)
+    System.Composition.Hosting (7.0) - copy_local: false
+      System.Composition.Runtime (>= 7.0)
+    System.Composition.Runtime (7.0) - copy_local: false
+    System.Composition.TypedParts (7.0) - copy_local: false
+      System.Composition.AttributedModel (>= 7.0)
+      System.Composition.Hosting (>= 7.0)
+      System.Composition.Runtime (>= 7.0)
+    System.IO.Pipelines (7.0) - copy_local: false
+      System.Buffers (>= 4.5.1)
+      System.Memory (>= 4.5.5)
+      System.Threading.Tasks.Extensions (>= 4.5.4)
+    System.Memory (4.5.5) - copy_local: false
+      System.Buffers (>= 4.5.1)
+      System.Numerics.Vectors (>= 4.4)
+      System.Runtime.CompilerServices.Unsafe (>= 4.5.3)
+    System.Numerics.Vectors (4.5) - copy_local: false
+    System.Reflection.Metadata (7.0.2) - copy_local: false
+      System.Collections.Immutable (>= 7.0)
+      System.Memory (>= 4.5.5)
+    System.Runtime.CompilerServices.Unsafe (6.0) - copy_local: false
+    System.Text.Encoding.CodePages (7.0) - copy_local: false
+      System.Memory (>= 4.5.5)
+      System.Runtime.CompilerServices.Unsafe (>= 6.0)
+    System.Threading.Channels (7.0) - copy_local: false
+      System.Threading.Tasks.Extensions (>= 4.5.4)
     System.Threading.Tasks.Extensions (4.5.4)
       System.Runtime.CompilerServices.Unsafe (>= 4.5.3)
 GITHUB
   remote: vostok/commons.time
     Vostok.Commons.Time/TimeBudget.cs (e0f0a663be42fc140f628ec7823f0154b600bf7d)
+  remote: morelinq/morelinq
+    MoreLinq/DistinctBy.cs (35fefdfffe5024b4ee5286a234c68204ac5382ce)

@@ -1,0 +1,16 @@
+type file
+id mazharenko.FluentAssertions.Eventual.Generator
+description
+  todo
+version 4.0.0
+authors mazharenko
+repositoryUrl https://github.com/mazharenko/FluentAssertions.Eventual
+licenseExpression CC0-1.0
+licenseUrl https://licenses.nuget.org/CC0-1.0
+dependencies
+  framework: netstandard2.0
+  mazharenko.FluentAssertions.Eventual ~> 4.0.0
+files
+  bin/Release/netstandard2.0/mazharenko.FluentAssertions.Eventual.Generator.Attributes.dll ==> lib/netstandard2.0
+  bin/Release/netstandard2.0/mazharenko.FluentAssertions.Eventual.Generator.Attributes.dll ==> analyzers/dotnet/cs
+  bin/Release/netstandard2.0/mazharenko.FluentAssertions.Eventual.Generator.dll ==> analyzers/dotnet/cs

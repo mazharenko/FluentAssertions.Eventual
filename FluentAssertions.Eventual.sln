@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # 
 VisualStudioVersion = 17.5.002.0
@@ -14,6 +14,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "paket", "paket", "{B727B0DD
 		paket.dependencies = paket.dependencies
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentAssertions.Eventual.Generator.Attributes", "src\FluentAssertions.Eventual.Generator.Attributes\FluentAssertions.Eventual.Generator.Attributes.csproj", "{34712330-3001-43A1-A12A-271D39D638A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentAssertions.Eventual.Generator", "src\FluentAssertions.Eventual.Generator\FluentAssertions.Eventual.Generator.csproj", "{C262D847-6990-497D-A3F0-A5797850B3AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +32,14 @@ Global
 		{DA723A2B-C25B-4162-8B62-A8B57A16A130}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA723A2B-C25B-4162-8B62-A8B57A16A130}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA723A2B-C25B-4162-8B62-A8B57A16A130}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34712330-3001-43A1-A12A-271D39D638A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34712330-3001-43A1-A12A-271D39D638A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34712330-3001-43A1-A12A-271D39D638A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34712330-3001-43A1-A12A-271D39D638A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C262D847-6990-497D-A3F0-A5797850B3AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C262D847-6990-497D-A3F0-A5797850B3AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C262D847-6990-497D-A3F0-A5797850B3AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C262D847-6990-497D-A3F0-A5797850B3AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,5 +47,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{9604AEDD-D482-4B03-B627-3B040B316912} = {301269FE-3203-40E2-87FB-5FEBB1CA059A}
 		{DA723A2B-C25B-4162-8B62-A8B57A16A130} = {301269FE-3203-40E2-87FB-5FEBB1CA059A}
+		{34712330-3001-43A1-A12A-271D39D638A4} = {301269FE-3203-40E2-87FB-5FEBB1CA059A}
+		{C262D847-6990-497D-A3F0-A5797850B3AD} = {301269FE-3203-40E2-87FB-5FEBB1CA059A}
 	EndGlobalSection
 EndGlobal
