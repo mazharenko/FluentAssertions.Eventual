@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <LangVersion>10</LangVersion>
+    <RootNamespace>mazharenko.FluentAssertions.Eventual.Generator.Tests</RootNamespace>
+    <AssemblyName>mazharenko.FluentAssertions.Eventual.Generator.Tests</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FluentAssertions.Eventual.Generator\FluentAssertions.Eventual.Generator.csproj" />
+    <ProjectReference Include="..\FluentAssertions.Eventual.Generator.Attributes\FluentAssertions.Eventual.Generator.Attributes.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="**/*.verified.cs" />
+    <None Include="**/*.verified.cs" />
+
+  </ItemGroup>
+
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
+
+</Project>
