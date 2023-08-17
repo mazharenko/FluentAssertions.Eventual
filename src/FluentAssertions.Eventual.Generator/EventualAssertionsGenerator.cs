@@ -86,7 +86,8 @@ public class EventualAssertionsGenerator : IIncrementalGenerator
 		var usings = 
 			rootUsings.Concat(fileScopedUsings)
 			.Concat(Enumerable.Repeat(SyntaxFactory.UsingDirective(SyntaxFactory.IdentifierName("mazharenko.FluentAssertions.Eventual")), 1))
-			.DistinctBy(u => u.NamespaceOrType.ToString());
+			.Where(u => u.Name is not null)
+			.DistinctBy(u => u.Name!.ToString());
 
 		var newRoot =
 			SyntaxFactory.CompilationUnit()
