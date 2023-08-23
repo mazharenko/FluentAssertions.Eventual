@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>4.0.1</Version>
+    <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+    <IsRoslynComponent>true</IsRoslynComponent>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>10.0</LangVersion>
+    <RootNamespace>mazharenko.FluentAssertions.Eventual</RootNamespace>
+    <AssemblyName>mazharenko.FluentAssertions.Eventual.Generator</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\paket-files\morelinq\morelinq\MoreLinq\DistinctBy.cs">
+      <Paket>True</Paket>
+      <Link>Misc/DistinctBy.cs</Link>
+    </Compile>
+    <ProjectReference Include="..\FluentAssertions.Eventual\FluentAssertions.Eventual.csproj" />
+    <ProjectReference Include="..\FluentAssertions.Eventual.Generator.Attributes\FluentAssertions.Eventual.Generator.Attributes.csproj" PrivateAssets="All" />
+  </ItemGroup>
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
+</Project>

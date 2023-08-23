@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>1.0.0</Version>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>10.0</LangVersion>
+    <RootNamespace>mazharenko.FluentAssertions.Eventual</RootNamespace>
+    <AssemblyName>mazharenko.FluentAssertions.Eventual.Generator.Attributes</AssemblyName>
+  </PropertyGroup>
+
+</Project>

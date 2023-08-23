@@ -10,3 +10,5 @@
 *.DotSettings.user
 
 paket-files/
+
+*.received.*

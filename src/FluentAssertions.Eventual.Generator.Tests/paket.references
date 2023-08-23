@@ -1,0 +1,11 @@
+
+FluentAssertions
+
+group Tests
+
+Microsoft.CodeAnalysis.CSharp.Workspaces
+NUnit
+NUnit3TestAdapter
+Microsoft.NET.Test.Sdk
+Verify.NUnit
+Verify.SourceGenerators
