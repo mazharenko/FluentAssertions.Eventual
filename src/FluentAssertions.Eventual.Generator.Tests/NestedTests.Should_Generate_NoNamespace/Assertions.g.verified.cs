@@ -3,7 +3,7 @@
 using mazharenko.FluentAssertions.Eventual;
 using FluentAssertions;
 
-[System.CodeDom.Compiler.GeneratedCodeAttribute("mazharenko.FluentAssertions.Eventual", "4.0.1")]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("mazharenko.FluentAssertions.Eventual", "4.0.2")]
 public static class Assertions_Eventual_Extensions
 {
 	public static Assertions_Eventual Eventually(this Assertions underlying)
@@ -22,7 +22,7 @@ public static class Assertions_Eventual_Extensions
 	}
 }
 
-[System.CodeDom.Compiler.GeneratedCodeAttribute("mazharenko.FluentAssertions.Eventual", "4.0.1")]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("mazharenko.FluentAssertions.Eventual", "4.0.2")]
 public class Assertions_Eventual
 {
 	private readonly Assertions underlying;
