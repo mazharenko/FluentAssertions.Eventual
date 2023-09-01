@@ -1,5 +1,6 @@
 [![Nuget package](https://img.shields.io/nuget/v/mazharenko.FluentAssertions.Eventual.svg?label=csharp&logo=nuget)](https://www.nuget.org/packages/mazharenko.FluentAssertions.Eventual/)
 [![Nuget package](https://img.shields.io/nuget/v/mazharenko.FluentAssertions.Eventual.FSharp.svg?label=fsharp&logo=nuget)](https://www.nuget.org/packages/mazharenko.FluentAssertions.Eventual.FSharp/)
+[![Nuget package](https://img.shields.io/nuget/v/mazharenko.FluentAssertions.Eventual.Generator.svg?label=source%20generator&logo=nuget&labelColor=red)](https://www.nuget.org/packages/mazharenko.FluentAssertions.Eventual.Generator/)
 
 [![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](LICENSE)
 
