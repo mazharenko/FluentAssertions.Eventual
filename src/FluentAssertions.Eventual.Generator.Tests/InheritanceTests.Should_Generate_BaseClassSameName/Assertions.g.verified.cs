@@ -39,3 +39,4 @@ namespace Namespace
 		}
 	}
 }
+#pragma warning restore CS8019, CS8933

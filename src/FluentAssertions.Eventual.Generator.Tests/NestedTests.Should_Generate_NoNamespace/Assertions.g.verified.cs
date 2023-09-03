@@ -36,3 +36,4 @@ public class Assertions_Eventual
 		this.delay = delay;
 	}
 }
+#pragma warning restore CS8019, CS8933

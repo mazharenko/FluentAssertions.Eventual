@@ -116,13 +116,27 @@ public class EventualAssertionsGenerator : IIncrementalGenerator
 							SyntaxFactory.SeparatedList(
 								new [] {
 									SyntaxFactory.ParseExpression("CS8019"),
-									SyntaxFactory.ParseExpression("CS8933"),
+									SyntaxFactory.ParseExpression("CS8933")
 								}
 							)
 						)
 					),
 					SyntaxFactory.Trivia(
 						SyntaxFactory.NullableDirectiveTrivia(SyntaxFactory.Token(SyntaxKind.RestoreKeyword), true)
+					)
+				)
+				.WithTrailingTrivia(
+					SyntaxFactory.Trivia(
+						SyntaxFactory.PragmaWarningDirectiveTrivia(
+							SyntaxFactory.Token(SyntaxKind.RestoreKeyword), true	
+						).WithErrorCodes(
+							SyntaxFactory.SeparatedList(
+								new [] {
+									SyntaxFactory.ParseExpression("CS8019"),
+									SyntaxFactory.ParseExpression("CS8933")
+								}
+							)
+						)
 					)
 				);
 
