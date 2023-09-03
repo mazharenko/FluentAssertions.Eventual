@@ -6,7 +6,7 @@ using mazharenko.FluentAssertions.Eventual;
 
 namespace Namespace
 {
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("mazharenko.FluentAssertions.Eventual", "4.0.2")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("mazharenko.FluentAssertions.Eventual", "4.1.0")]
 	public static class Assertions_Eventual_2_Extensions
 	{
 		public static Assertions_Eventual<T1, T2> Eventually<T1, T2>(this Assertions<T1, T2> underlying)
@@ -25,7 +25,7 @@ namespace Namespace
 		}
 	}
 
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("mazharenko.FluentAssertions.Eventual", "4.0.2")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("mazharenko.FluentAssertions.Eventual", "4.1.0")]
 	public class Assertions_Eventual<T1, T2>
 	{
 		private readonly Assertions<T1, T2> underlying;

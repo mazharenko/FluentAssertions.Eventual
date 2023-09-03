@@ -10,7 +10,7 @@ namespace Namespace1
 	{
 		namespace Namespace3
 		{
-			[System.CodeDom.Compiler.GeneratedCodeAttribute("mazharenko.FluentAssertions.Eventual", "4.0.2")]
+			[System.CodeDom.Compiler.GeneratedCodeAttribute("mazharenko.FluentAssertions.Eventual", "4.1.0")]
 			public static class Assertions_Eventual_Extensions
 			{
 				public static Assertions_Eventual Eventually(this Assertions underlying)
@@ -29,7 +29,7 @@ namespace Namespace1
 				}
 			}
 
-			[System.CodeDom.Compiler.GeneratedCodeAttribute("mazharenko.FluentAssertions.Eventual", "4.0.2")]
+			[System.CodeDom.Compiler.GeneratedCodeAttribute("mazharenko.FluentAssertions.Eventual", "4.1.0")]
 			public class Assertions_Eventual
 			{
 				private readonly Assertions underlying;
