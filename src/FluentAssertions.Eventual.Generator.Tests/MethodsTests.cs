@@ -13,7 +13,6 @@ public class MethodsTests : BaseTests
 using mazharenko.FluentAssertions.Eventual;
 using FluentAssertions;
 using FluentAssertions.Execution;
-using FluentAssertions.Primitives;
 
 namespace Namespace
 {
@@ -47,7 +46,6 @@ namespace Namespace
 using mazharenko.FluentAssertions.Eventual;
 using FluentAssertions;
 using FluentAssertions.Execution;
-using FluentAssertions.Primitives;
 
 namespace Namespace
 {

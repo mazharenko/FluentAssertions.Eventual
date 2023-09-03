@@ -13,7 +13,6 @@ public class NestedTests : BaseTests
 namespace Namespace;
 
 using mazharenko.FluentAssertions.Eventual;
-using FluentAssertions;
 
 [GenerateEventual]
 public class Assertions
@@ -28,7 +27,6 @@ public class Assertions
 	{
 		const string source = @"
 using mazharenko.FluentAssertions.Eventual;
-using FluentAssertions;
 
 namespace Namespace1
 {
@@ -52,7 +50,6 @@ namespace Namespace1
 	{
 		const string source = @"
 using mazharenko.FluentAssertions.Eventual;
-using FluentAssertions;
 
 [GenerateEventual]
 public class Assertions

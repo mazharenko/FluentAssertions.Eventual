@@ -11,8 +11,6 @@ public class InheritanceTests : BaseTests
 	{
 		const string source = @"
 using mazharenko.FluentAssertions.Eventual;
-using FluentAssertions;
-using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
 
 namespace Namespace
@@ -45,9 +43,6 @@ namespace Namespace
 	{
 		const string source = @"
 using mazharenko.FluentAssertions.Eventual;
-using FluentAssertions;
-using FluentAssertions.Execution;
-using FluentAssertions.Primitives;
 
 namespace Namespace
 {
@@ -75,7 +70,6 @@ namespace Namespace
 	{
 		const string source = @"
 using mazharenko.FluentAssertions.Eventual;
-using FluentAssertions;
 using FluentAssertions.Primitives;
 
 namespace Namespace

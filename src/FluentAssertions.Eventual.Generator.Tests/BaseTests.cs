@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Immutable;
 using System.IO;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -36,8 +37,7 @@ public abstract class BaseTests
 
 		driver = driver.RunGeneratorsAndUpdateCompilation(sourceTextCompilation, out var outputCompilation, out var _);
 
-		if (!sourceTextCompilation.GetDiagnostics().IsEmpty)
-			sourceTextCompilation.GetDiagnostics().Should().OnlyContain(d => d.Severity < DiagnosticSeverity.Error);
+		sourceTextCompilation.GetDiagnostics().Should().BeEmpty();
 
 		var afterGenerationDiagnostics = outputCompilation.GetDiagnostics();
 		
@@ -45,8 +45,6 @@ public abstract class BaseTests
 		settings.UseUniqueDirectory();
 		await Verifier.Verify(driver, settings);
 
-		if (!afterGenerationDiagnostics.IsEmpty)
-			afterGenerationDiagnostics.Should().OnlyContain(d => d.Severity < DiagnosticSeverity.Error);
-
+		afterGenerationDiagnostics.Should().BeEmpty();
 	}
 }
