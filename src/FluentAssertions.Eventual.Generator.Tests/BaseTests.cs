@@ -31,7 +31,7 @@ public abstract class BaseTests
 				MetadataReference.CreateFromFile(typeof(GenerateEventualAttribute).Assembly.Location),
 				MetadataReference.CreateFromFile(typeof(EventualAssertions).Assembly.Location),
 				MetadataReference.CreateFromFile(typeof(Attribute).Assembly.Location),
-			}, new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
+			}, new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary).WithNullableContextOptions(NullableContextOptions.Enable));
 
 		GeneratorDriver driver = CSharpGeneratorDriver.Create(new EventualAssertionsGenerator());
 

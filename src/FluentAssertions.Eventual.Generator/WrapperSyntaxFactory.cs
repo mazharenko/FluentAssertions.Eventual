@@ -107,7 +107,7 @@ public {wrapperIdentifier}({originalFullType} underlying, System.TimeSpan timeou
 		return
 			methodWithAttribute.WithBody(
 				SyntaxFactory.Block(
-					SyntaxFactory.ParseStatement($"{method.ReturnType} result = default;"),
+					SyntaxFactory.ParseStatement($"{method.ReturnType} result = default!;"),
 					SyntaxFactory.ForEachVariableStatement(
 						SyntaxFactory.ParseExpression("var _"),
 						SyntaxFactory.ParseExpression("EventualAssertions.Attempts(timeout, delay)"),

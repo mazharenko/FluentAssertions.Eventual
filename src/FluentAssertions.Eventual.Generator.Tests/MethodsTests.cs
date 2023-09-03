@@ -26,7 +26,7 @@ namespace Namespace
 		}
 
 		[CustomAssertion]
-		public void Be(int expected, string because = null)
+		public void Be(int expected, string? because = null)
 		{
 			Execute.Assertion
 				.ForCondition(Subject == expected)
@@ -59,7 +59,7 @@ namespace Namespace
 		}
 
 		[CustomAssertion]
-		public AndConstraint<IntAssertions> Be(int expected, string because = null)
+		public AndConstraint<IntAssertions> Be(int expected, string? because = null)
 		{
 			Execute.Assertion
 				.ForCondition(Subject == expected)

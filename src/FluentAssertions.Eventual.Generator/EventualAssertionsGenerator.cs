@@ -120,6 +120,9 @@ public class EventualAssertionsGenerator : IIncrementalGenerator
 								}
 							)
 						)
+					),
+					SyntaxFactory.Trivia(
+						SyntaxFactory.NullableDirectiveTrivia(SyntaxFactory.Token(SyntaxKind.RestoreKeyword), true)
 					)
 				);
 
