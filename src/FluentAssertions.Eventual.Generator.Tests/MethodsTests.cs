@@ -71,4 +71,45 @@ namespace Namespace
 ";
 		await RunAndVerify(source);
 	}
+
+	[Test]
+	public async Task Should_Generate_WithDocumentation()
+	{
+		const string source = @"
+using mazharenko.FluentAssertions.Eventual;
+using FluentAssertions;
+		
+namespace Namespace
+{
+	[GenerateEventual]
+	public class Assertions
+	{
+		[CustomAssertion]
+		/// <summary>docs</summary>
+		/// <remarks>docs</remarks>
+		public void MethodWithDocs()
+		{
+		}
+
+		/// <summary>docs before attribute</summary>
+		/// <remarks>docs before attribute</remarks>
+		[CustomAssertion]
+		public void MethodWithDocsBeforeArgument()
+		{
+		}
+		
+		[CustomAssertion]
+		/// <summary>docs</summary>
+		/// <remarks>docs</remarks>
+		#pragma warning disable XX001
+		public void MethodWithDocsBeforePragma()
+		{
+		}
+		#pragma warning restore XX001
+	}
+}
+";
+
+		await RunAndVerify(source);
+	}
 }

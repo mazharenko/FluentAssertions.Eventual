@@ -56,17 +56,32 @@ public {wrapperIdentifier}({originalFullType} underlying, System.TimeSpan timeou
 
 	private static MethodDeclarationSyntax GenerateEventualMethod(MethodDeclarationSyntax method)
 	{
+		var documentation1 = method.DescendantNodes().OfType<DocumentationCommentTriviaSyntax>().FirstOrDefault();
+		var documentationContent = method.DescendantTrivia()
+				.Where(t => 
+					t.IsKind(SyntaxKind.SingleLineDocumentationCommentTrivia)
+				).FirstOrDefault();
+
 		// [CustomAssertion]
-		var methodWithAttribute = method
-			.WithAttributeLists(
-				new SyntaxList<AttributeListSyntax>(
-					SyntaxFactory.AttributeList(
-						SyntaxFactory.SeparatedList(
-							new[] { SyntaxFactory.Attribute(SyntaxFactory.IdentifierName("CustomAssertion")) }
-						)
+		// /// <summary></summary>
+		var methodWithAttribute = 
+			SyntaxFactory.MethodDeclaration(method.ReturnType, method.Identifier)
+				.WithParameterList(method.ParameterList)
+				.WithModifiers(
+					SyntaxFactory.TokenList(
+						method.Modifiers.Select(x => x.WithoutTrivia())
 					)
 				)
-			);
+				.WithLeadingTrivia(documentationContent)
+				.WithAttributeLists(
+					new SyntaxList<AttributeListSyntax>(
+						SyntaxFactory.AttributeList(
+							SyntaxFactory.SeparatedList(
+								new[] { SyntaxFactory.Attribute(SyntaxFactory.IdentifierName("CustomAssertion")) }
+							)
+						)
+					)
+				);
 
 		// underlying.<Method>(<arg1>, <arg2>, ...)
 		var underlyingInvocation = SyntaxFactory.InvocationExpression(
