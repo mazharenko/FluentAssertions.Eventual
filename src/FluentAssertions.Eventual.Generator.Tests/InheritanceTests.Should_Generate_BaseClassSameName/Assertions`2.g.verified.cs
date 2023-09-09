@@ -9,16 +9,25 @@ namespace Namespace
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("mazharenko.FluentAssertions.Eventual", "4.1.0")]
 	public static class Assertions_Eventual_2_Extensions
 	{
+		/// <summary>
+		/// Returns a <see cref="T:Namespace.Assertions_Eventual`2"/> wrapper that adds waiting to the current <see cref="T:Namespace.Assertions`2"/>
+		/// </summary>
 		public static Assertions_Eventual<T1, T2> Eventually<T1, T2>(this Assertions<T1, T2> underlying)
 		{
 			return Eventually(underlying, System.TimeSpan.FromSeconds(5), System.TimeSpan.FromMilliseconds(100));
 		}
 
+		/// <summary>
+		/// Returns a <see cref="T:Namespace.Assertions_Eventual`2"/> wrapper that adds waiting to the current <see cref="T:Namespace.Assertions`2"/>
+		/// </summary>
 		public static Assertions_Eventual<T1, T2> EventuallyLong<T1, T2>(this Assertions<T1, T2> underlying)
 		{
 			return Eventually(underlying, System.TimeSpan.FromSeconds(20), System.TimeSpan.FromMilliseconds(500));
 		}
 
+		/// <summary>
+		/// Returns a <see cref="T:Namespace.Assertions_Eventual`2"/> wrapper that adds waiting to the current <see cref="T:Namespace.Assertions`2"/>
+		/// </summary>
 		public static Assertions_Eventual<T1, T2> Eventually<T1, T2>(this Assertions<T1, T2> underlying, System.TimeSpan timeout, System.TimeSpan delay)
 		{
 			return new Assertions_Eventual<T1, T2>(underlying, timeout, delay);

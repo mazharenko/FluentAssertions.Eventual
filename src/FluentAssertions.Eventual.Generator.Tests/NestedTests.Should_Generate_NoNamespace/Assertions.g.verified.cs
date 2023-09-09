@@ -7,16 +7,25 @@ using mazharenko.FluentAssertions.Eventual;
 [System.CodeDom.Compiler.GeneratedCodeAttribute("mazharenko.FluentAssertions.Eventual", "4.1.0")]
 public static class Assertions_Eventual_Extensions
 {
+	/// <summary>
+	/// Returns a <see cref="T:Assertions_Eventual"/> wrapper that adds waiting to the current <see cref="T:Assertions"/>
+	/// </summary>
 	public static Assertions_Eventual Eventually(this Assertions underlying)
 	{
 		return Eventually(underlying, System.TimeSpan.FromSeconds(5), System.TimeSpan.FromMilliseconds(100));
 	}
 
+	/// <summary>
+	/// Returns a <see cref="T:Assertions_Eventual"/> wrapper that adds waiting to the current <see cref="T:Assertions"/>
+	/// </summary>
 	public static Assertions_Eventual EventuallyLong(this Assertions underlying)
 	{
 		return Eventually(underlying, System.TimeSpan.FromSeconds(20), System.TimeSpan.FromMilliseconds(500));
 	}
 
+	/// <summary>
+	/// Returns a <see cref="T:Assertions_Eventual"/> wrapper that adds waiting to the current <see cref="T:Assertions"/>
+	/// </summary>
 	public static Assertions_Eventual Eventually(this Assertions underlying, System.TimeSpan timeout, System.TimeSpan delay)
 	{
 		return new Assertions_Eventual(underlying, timeout, delay);

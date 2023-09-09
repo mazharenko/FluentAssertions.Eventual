@@ -8,7 +8,7 @@ using mazharenko.FluentAssertions.Eventual.Misc;
 
 internal static class ExtensionSyntaxFactory
 {
-	public static ClassDeclarationSyntax? EventualExtensions(ClassDeclarationSyntax originalClass, ClassDeclarationSyntax wrapperClass)
+	public static ClassDeclarationSyntax? EventualExtensions(string? namespaceName, ClassDeclarationSyntax originalClass, ClassDeclarationSyntax wrapperClass)
 	{
 		if (originalClass.Modifiers.Any(m => m.IsKind(SyntaxKind.AbstractKeyword)))
 			return null;
@@ -20,6 +20,25 @@ internal static class ExtensionSyntaxFactory
 		// Assertions_Eventual<TSubject, TAssertions>
 		var wrapperFullType = wrapperClass.GetFullTypeSyntax();
 
+		string GetDocsId(ClassDeclarationSyntax classDeclaration)
+		{
+			return (namespaceName, classDeclaration.TypeParameterList) switch
+			{
+				(null or "", null) => $"T:{classDeclaration.Identifier.ValueText}",
+				(null or "", var typeParams) =>  $"T:{classDeclaration.Identifier.ValueText}`{typeParams.Parameters.Count}",
+				(var ns, null) => $"T:{ns}.{classDeclaration.Identifier.ValueText}",
+				(var ns, var typeParams) =>  $"T:{ns}.{classDeclaration.Identifier.ValueText}`{typeParams.Parameters.Count}",				
+			};
+		}
+
+		// T:Namespace.Assertions
+		// T:Namespace.Assertions`2
+		var originalDocsId = GetDocsId(originalClass);
+
+		// T:Namespace.Assertions_Eventual
+		// T:Namespace.Assertions_Eventual`2
+		var wrapperDocsId = GetDocsId(wrapperClass);
+
 		// public static Assertions_Eventual<TSubject, TAssertions> Eventually<TSubject, TAssertions>()
 		//	   where ...
 		// {}
@@ -28,7 +47,11 @@ internal static class ExtensionSyntaxFactory
 				.AddModifiers(
 					SyntaxFactory.Token(SyntaxKind.PublicKeyword),
 					SyntaxFactory.Token(SyntaxKind.StaticKeyword)
-				)
+				).WithLeadingTrivia(SyntaxFactory.ParseLeadingTrivia(@$"
+/// <summary>
+/// Returns a <see cref=""{wrapperDocsId}""/> wrapper that adds waiting to the current <see cref=""{originalDocsId}"" />
+/// </summary>
+				"))
 				.WithTypeParameterList(originalClass.TypeParameterList)
 				.WithConstraintClauses(originalClass.ConstraintClauses);
 
@@ -36,7 +59,7 @@ internal static class ExtensionSyntaxFactory
 			originalClass.TypeParameterList is null
 				? $"{originalClass.Identifier.Eventual()}_Extensions"
 				: $"{originalClass.Identifier.Eventual()}_{originalClass.TypeParameterList.Parameters.Count}_Extensions";
-
+		
 		return SyntaxFactory.ClassDeclaration(extensionsIdentifier)
 			.AddAttributeLists(CodeGeneratedAttribute.AsSyntax)
 			.AddModifiers(

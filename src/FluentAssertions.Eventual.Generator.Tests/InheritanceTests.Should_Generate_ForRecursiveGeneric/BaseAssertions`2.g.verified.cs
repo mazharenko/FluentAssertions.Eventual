@@ -10,18 +10,27 @@ namespace Namespace
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("mazharenko.FluentAssertions.Eventual", "4.1.0")]
 	public static class BaseAssertions_Eventual_2_Extensions
 	{
+		/// <summary>
+		/// Returns a <see cref="T:Namespace.BaseAssertions_Eventual`2"/> wrapper that adds waiting to the current <see cref="T:Namespace.BaseAssertions`2"/>
+		/// </summary>
 		public static BaseAssertions_Eventual<TSubject, TAssertions> Eventually<TSubject, TAssertions>(this BaseAssertions<TSubject, TAssertions> underlying)
 			where TSubject : class where TAssertions : BaseAssertions<TSubject, TAssertions>
 		{
 			return Eventually(underlying, System.TimeSpan.FromSeconds(5), System.TimeSpan.FromMilliseconds(100));
 		}
 
+		/// <summary>
+		/// Returns a <see cref="T:Namespace.BaseAssertions_Eventual`2"/> wrapper that adds waiting to the current <see cref="T:Namespace.BaseAssertions`2"/>
+		/// </summary>
 		public static BaseAssertions_Eventual<TSubject, TAssertions> EventuallyLong<TSubject, TAssertions>(this BaseAssertions<TSubject, TAssertions> underlying)
 			where TSubject : class where TAssertions : BaseAssertions<TSubject, TAssertions>
 		{
 			return Eventually(underlying, System.TimeSpan.FromSeconds(20), System.TimeSpan.FromMilliseconds(500));
 		}
 
+		/// <summary>
+		/// Returns a <see cref="T:Namespace.BaseAssertions_Eventual`2"/> wrapper that adds waiting to the current <see cref="T:Namespace.BaseAssertions`2"/>
+		/// </summary>
 		public static BaseAssertions_Eventual<TSubject, TAssertions> Eventually<TSubject, TAssertions>(this BaseAssertions<TSubject, TAssertions> underlying, System.TimeSpan timeout, System.TimeSpan delay)
 			where TSubject : class where TAssertions : BaseAssertions<TSubject, TAssertions>
 		{

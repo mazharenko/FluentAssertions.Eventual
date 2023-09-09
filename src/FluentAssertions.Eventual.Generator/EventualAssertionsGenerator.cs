@@ -75,8 +75,9 @@ public class EventualAssertionsGenerator : IIncrementalGenerator
 	{
 		context.CancellationToken.ThrowIfCancellationRequested();
 
+		var ns = string.Join(".", assertionClass.Class.Ancestors().OfType<BaseNamespaceDeclarationSyntax>().Reverse().Select(x => x.Name));
 		var wrapper = WrapperSyntaxFactory.EventualWrapper(assertionClass);
-		var extensions = ExtensionSyntaxFactory.EventualExtensions(assertionClass.Class, wrapper);
+		var extensions = ExtensionSyntaxFactory.EventualExtensions(ns, assertionClass.Class, wrapper);
 
 		var rootUsings = assertionClass.Class.SyntaxTree.GetCompilationUnitRoot().Usings;
 		var fileScopedUsings = 
@@ -89,21 +90,24 @@ public class EventualAssertionsGenerator : IIncrementalGenerator
 			.Where(u => u.Name is not null)
 			.DistinctBy(u => u.Name!.ToString());
 
+		var classes = SyntaxFactory.List(
+			new MemberDeclarationSyntax?[]
+				{
+					extensions, wrapper
+				}.Where(node => node is not null)
+				.Select(x => x!)
+		);
+
 		var newRoot =
 			SyntaxFactory.CompilationUnit()
 				.WithUsings(SyntaxFactory.List(usings))
 				.WithMembers(
-					assertionClass.Class.Ancestors().OfType<BaseNamespaceDeclarationSyntax>()
-						.Aggregate(
-							SyntaxFactory.List(
-								new MemberDeclarationSyntax?[]
-									{
-										extensions, wrapper
-									}.Where(node => node is not null)
-									.Select(x => x!)
-							),
-							(list, ns) => SyntaxFactory.SingletonList<MemberDeclarationSyntax>(
-								SyntaxFactory.NamespaceDeclaration(ns.Name).WithMembers(list)
+					ns is null or "" 
+						? classes
+						: SyntaxFactory.SingletonList<MemberDeclarationSyntax>(
+							SyntaxFactory.NamespaceDeclaration(SyntaxFactory.ParseName(ns))
+								.WithMembers(
+									classes
 							)
 						)
 				)
