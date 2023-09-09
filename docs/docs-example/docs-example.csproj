@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="mazharenko.FluentAssertions.Eventual.Generator" Version="4.1.0" />
+    <PackageReference Include="mazharenko.FluentAssertions.Eventual.Generator" Version="4.1.1" />
 
   </ItemGroup>
 
