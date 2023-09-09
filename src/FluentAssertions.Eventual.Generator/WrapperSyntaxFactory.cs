@@ -71,15 +71,14 @@ public {wrapperIdentifier}({originalFullType} underlying, System.TimeSpan timeou
 						method.Modifiers.Select(x => x.WithoutTrivia())
 					)
 				)
-				.WithLeadingTrivia(documentationContent)
 				.WithAttributeLists(
 					new SyntaxList<AttributeListSyntax>(
 						SyntaxFactory.AttributeList(
 							SyntaxFactory.SeparatedList(
 								new[] { SyntaxFactory.Attribute(SyntaxFactory.IdentifierName("CustomAssertion")) }
 							)
-						)
-					)
+						).WithLeadingTrivia(documentationContent)
+					)						
 				);
 
 		// underlying.<Method>(<arg1>, <arg2>, ...)

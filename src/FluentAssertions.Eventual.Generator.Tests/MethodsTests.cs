@@ -84,24 +84,17 @@ namespace Namespace
 	[GenerateEventual]
 	public class Assertions
 	{
-		[CustomAssertion]
 		/// <summary>docs</summary>
 		/// <remarks>docs</remarks>
+		[CustomAssertion]
 		public void MethodWithDocs()
 		{
 		}
-
-		/// <summary>docs before attribute</summary>
-		/// <remarks>docs before attribute</remarks>
-		[CustomAssertion]
-		public void MethodWithDocsBeforeArgument()
-		{
-		}
 		
-		[CustomAssertion]
 		/// <summary>docs</summary>
 		/// <remarks>docs</remarks>
 		#pragma warning disable XX001
+		[CustomAssertion]
 		public void MethodWithDocsBeforePragma()
 		{
 		}

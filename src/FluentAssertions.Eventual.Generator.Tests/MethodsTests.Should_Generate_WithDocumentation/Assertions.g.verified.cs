@@ -48,27 +48,18 @@ namespace Namespace
 			this.delay = delay;
 		}
 
-		[CustomAssertion]
 		/// <summary>docs</summary>
 		/// <remarks>docs</remarks>
+		[CustomAssertion]
 		public void MethodWithDocs()
 		{
 			foreach (var _  in EventualAssertions.Attempts(timeout, delay))
 				underlying.MethodWithDocs();
 		}
 
-		[CustomAssertion]
-		/// <summary>docs before attribute</summary>
-		/// <remarks>docs before attribute</remarks>
-		public void MethodWithDocsBeforeArgument()
-		{
-			foreach (var _  in EventualAssertions.Attempts(timeout, delay))
-				underlying.MethodWithDocsBeforeArgument();
-		}
-
-		[CustomAssertion]
 		/// <summary>docs</summary>
 		/// <remarks>docs</remarks>
+		[CustomAssertion]
 		public void MethodWithDocsBeforePragma()
 		{
 			foreach (var _  in EventualAssertions.Attempts(timeout, delay))
