@@ -7,9 +7,72 @@
 
 # Eventual assertions for FluentAssertions
 
-The extension allows to wait for an assertion to pass.
+`FluentAssertions.Eventual` is an extension that allows to wait for `FluentAssertions` checks to pass which can be useful when writing end-to-end tests.
 
-Interactive README in mybinder:\
+## Basic usage
+
+Any `FluentAssertions` checks can be placed under a special `foreach` loop, which will implement the waiting and retry logic.
+
+```csharp
+foreach (var _ in EventualAssertions.Attempts(4.Seconds(), 400.Milliseconds()))
+{
+    button.Should().BeVisible();
+}
+```
+
+## Source generator usage
+
+When having a custom assertion class for a dynamic by nature subject the class can be decorated by the `[GenerateEventual]` attribute to get a special waiting wrapper generated.
+
+Your code (simplified):
+
+```csharp
+[GenerateEventual]
+public class ButtonAssertions
+{
+    [CustomAssertion]
+    public AndConstraint<ButtonAssertions> BeVisible(string? because = null, params object[] becauseArgs)
+    {
+        // implementation
+    }
+}
+```
+
+What gets generated (simplified):
+
+```csharp
+public static class ButtonAssertions_Eventual_Extensions
+{
+    public static ButtonAssertions_Eventual Eventually(this ButtonAssertions underlying) { /* ... */ }
+    // more generated extensions
+}
+
+public class ButtonAssertions_Eventual
+{
+    // constructor, fields
+
+    [CustomAssertion]
+    public AndConstraint<ButtonAssertions> BeVisible(string? because = null, params object[] becauseArgs)
+    {
+        AndConstraint<CurrentDateTimeAssertions> result = default !;
+        foreach (var _  in EventualAssertions.Attempts(timeout, delay))
+            result = underlying.BeVisible(because, becauseArgs);
+        return result;
+    }
+}
+```
+
+Which allows for the following syntax:
+
+```csharp
+button.Should().Eventually().BeVisible();
+button.Should().Eventually(4.Seconds(), 400.Milliseconds()).BeVisible();
+button.Should().EventuallyLong().BeVisible();
+```
+
+## More info
+
+Complete interactive README in mybinder:\
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mazharenko/FluentAssertions.Eventual/HEAD?urlpath=lab/tree/README.ipynb)
 
 Also in nbviewer:\
