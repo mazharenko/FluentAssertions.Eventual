@@ -118,6 +118,7 @@ internal class AttemptsEnumerator : IEnumerator<Attempt>, IAsyncEnumerator<Attem
 
 	public void Dispose()
 	{
+		assertionScope?.Discard();
 		assertionScope?.Dispose();
 		assertionScope = null;
 	}
