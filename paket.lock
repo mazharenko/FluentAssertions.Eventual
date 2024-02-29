@@ -80,7 +80,7 @@ GITHUB
     MoreLinq/DistinctBy.cs (35fefdfffe5024b4ee5286a234c68204ac5382ce)
 GROUP Tests
 STORAGE: NONE
-RESTRICTION: == net7.0
+RESTRICTION: == net8.0
 NUGET
   remote: https://api.nuget.org/v3/index.json
     Argon (0.7.2)
@@ -91,22 +91,22 @@ NUGET
     Humanizer.Core (2.14.1)
     Microsoft.Bcl.AsyncInterfaces (7.0)
     Microsoft.CodeAnalysis.Analyzers (3.3.4)
-    Microsoft.CodeAnalysis.Common (4.7)
+    Microsoft.CodeAnalysis.Common (4.8)
       Microsoft.CodeAnalysis.Analyzers (>= 3.3.4)
       System.Collections.Immutable (>= 7.0)
       System.Reflection.Metadata (>= 7.0)
       System.Runtime.CompilerServices.Unsafe (>= 6.0)
-    Microsoft.CodeAnalysis.CSharp (4.7)
-      Microsoft.CodeAnalysis.Common (4.7)
-    Microsoft.CodeAnalysis.CSharp.Workspaces (4.7)
+    Microsoft.CodeAnalysis.CSharp (4.8)
+      Microsoft.CodeAnalysis.Common (4.8)
+    Microsoft.CodeAnalysis.CSharp.Workspaces (4.8)
       Humanizer.Core (>= 2.14.1)
-      Microsoft.CodeAnalysis.Common (4.7)
-      Microsoft.CodeAnalysis.CSharp (4.7)
-      Microsoft.CodeAnalysis.Workspaces.Common (4.7)
-    Microsoft.CodeAnalysis.Workspaces.Common (4.7)
+      Microsoft.CodeAnalysis.Common (4.8)
+      Microsoft.CodeAnalysis.CSharp (4.8)
+      Microsoft.CodeAnalysis.Workspaces.Common (4.8)
+    Microsoft.CodeAnalysis.Workspaces.Common (4.8)
       Humanizer.Core (>= 2.14.1)
       Microsoft.Bcl.AsyncInterfaces (>= 7.0)
-      Microsoft.CodeAnalysis.Common (4.7)
+      Microsoft.CodeAnalysis.Common (4.8)
       System.Composition (>= 7.0)
       System.IO.Pipelines (>= 7.0)
       System.Threading.Channels (>= 7.0)

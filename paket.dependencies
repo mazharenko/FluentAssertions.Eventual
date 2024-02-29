@@ -15,7 +15,7 @@ github morelinq/morelinq MoreLinq/DistinctBy.cs
 group Tests
   source https://api.nuget.org/v3/index.json
   storage: none
-  framework: net7.0
+  framework: net8.0
   
   nuget Microsoft.CodeAnalysis.CSharp.Workspaces >= 4.6.0
   nuget Verify.NUnit ~> 20.1.1
