@@ -4,7 +4,7 @@
 #nullable restore
 using mazharenko.FluentAssertions.Eventual;
 
-[System.CodeDom.Compiler.GeneratedCodeAttribute("mazharenko.FluentAssertions.Eventual", "4.1.1")]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("mazharenko.FluentAssertions.Eventual", "4.2.0")]
 public static class Assertions_Eventual_Extensions
 {
 	/// <summary>
@@ -32,7 +32,7 @@ public static class Assertions_Eventual_Extensions
 	}
 }
 
-[System.CodeDom.Compiler.GeneratedCodeAttribute("mazharenko.FluentAssertions.Eventual", "4.1.1")]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("mazharenko.FluentAssertions.Eventual", "4.2.0")]
 public class Assertions_Eventual
 {
 	private readonly Assertions underlying;
