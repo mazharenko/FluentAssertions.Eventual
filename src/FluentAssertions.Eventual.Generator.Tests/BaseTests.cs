@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Immutable;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.CodeAnalysis;
@@ -43,6 +43,22 @@ public abstract class BaseTests
 		
 		var settings = new VerifySettings();
 		settings.UseUniqueDirectory();
+		settings.AddScrubber((sb, c) =>
+		{
+			var s = sb.ToString();
+			var generatedCodeAttributes =
+				Regex.Matches(s,
+					"""
+					\[System.CodeDom.Compiler.GeneratedCodeAttribute\("mazharenko.FluentAssertions.Eventual"\, \"[^\"]+\"\)\]
+					""");
+			foreach (Match match in generatedCodeAttributes)
+			{
+				sb.Replace(match.Value,
+					"""
+					[System.CodeDom.Compiler.GeneratedCodeAttribute("mazharenko.FluentAssertions.Eventual", "<version>"]
+					""");
+			}
+		});
 		await Verifier.Verify(driver, settings);
 
 		afterGenerationDiagnostics.Should().BeEmpty();

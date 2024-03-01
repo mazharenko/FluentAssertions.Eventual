@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
-    <LangVersion>10</LangVersion>
+    <LangVersion>11</LangVersion>
     <RootNamespace>mazharenko.FluentAssertions.Eventual.Generator.Tests</RootNamespace>
     <AssemblyName>mazharenko.FluentAssertions.Eventual.Generator.Tests</AssemblyName>
   </PropertyGroup>
