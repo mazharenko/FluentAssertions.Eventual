@@ -6,13 +6,20 @@ open System.Threading
 open FluentAssertions.Execution
 
 module EventualAssertions =
+    type private ScopeWrapper(scope : AssertionScope) =
+        member this.HasFailures() = scope.HasFailures()
+        member this.Discard() = scope.Discard();
+        interface IDisposable with
+            member this.Dispose() =
+                scope.Discard() |> ignore
+                scope.Dispose()
     type EventualAssertionsBuilder(timeout: TimeSpan, delay: TimeSpan) =
         member _.Zero() = ()
         member _.Delay f = f
 
         member _.Run f =
             let success =
-                using (new AssertionScope()) (fun scope ->
+                using (new ScopeWrapper(new AssertionScope())) (fun scope ->
                     let stopwatch = Stopwatch.StartNew()
 
                     let rec repeat () =
@@ -40,7 +47,7 @@ module EventualAssertions =
             async {
                 let! success =
                     async {
-                        use scope = new AssertionScope()
+                        use scope = new ScopeWrapper(new AssertionScope())
                         let stopwatch = Stopwatch.StartNew()
 
                         let rec repeat () =
