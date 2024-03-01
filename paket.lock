@@ -33,6 +33,7 @@ NUGET
       System.Composition (>= 7.0)
       System.IO.Pipelines (>= 7.0)
       System.Threading.Channels (>= 7.0)
+    Microsoft.CSharp (4.7) - copy_local: false
     System.Buffers (4.5.1) - copy_local: false
     System.Collections.Immutable (7.0) - copy_local: false
       System.Memory (>= 4.5.5)
@@ -73,11 +74,14 @@ NUGET
       System.Threading.Tasks.Extensions (>= 4.5.4)
     System.Threading.Tasks.Extensions (4.5.4)
       System.Runtime.CompilerServices.Unsafe (>= 4.5.3)
+    ThisAssembly.AssemblyInfo (1.4.1) - copy_local: false
+      Microsoft.CSharp (>= 4.7)
+      System.Threading.Tasks.Extensions (>= 4.5.4)
 GITHUB
   remote: vostok/commons.time
     Vostok.Commons.Time/TimeBudget.cs (e0f0a663be42fc140f628ec7823f0154b600bf7d)
   remote: morelinq/morelinq
-    MoreLinq/DistinctBy.cs (35fefdfffe5024b4ee5286a234c68204ac5382ce)
+    MoreLinq/DistinctBy.cs (60390e8d9825b86c68982ebae3cd30c1549cdec3)
 GROUP Tests
 STORAGE: NONE
 RESTRICTION: == net8.0

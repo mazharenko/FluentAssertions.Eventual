@@ -7,6 +7,7 @@ framework: netstandard2.0
 nuget FluentAssertions >= 6.7.0
 nuget FSharp.Core >= 6.0.0
 nuget JetBrains.Annotations >= 2022.1.0
+nuget ThisAssembly.AssemblyInfo >= 1.4.1 copy_local: false
 nuget Microsoft.Bcl.AsyncInterfaces >= 7.0.0
 nuget Microsoft.CodeAnalysis.CSharp.Workspaces >= 4.6.0 copy_local: false
 github vostok/commons.time Vostok.Commons.Time/TimeBudget.cs
