@@ -1,3 +1,5 @@
+The project is archived due to the recent FluentAssertions licence [update](https://github.com/fluentassertions/fluentassertions/pull/2943).
+
 [![Nuget package](https://img.shields.io/nuget/v/mazharenko.FluentAssertions.Eventual.svg?label=csharp&logo=nuget)](https://www.nuget.org/packages/mazharenko.FluentAssertions.Eventual/)
 [![Nuget package](https://img.shields.io/nuget/v/mazharenko.FluentAssertions.Eventual.FSharp.svg?label=fsharp&logo=nuget)](https://www.nuget.org/packages/mazharenko.FluentAssertions.Eventual.FSharp/)
 [![Nuget package](https://img.shields.io/nuget/v/mazharenko.FluentAssertions.Eventual.Generator.svg?label=source%20generator&logo=nuget&labelColor=red)](https://www.nuget.org/packages/mazharenko.FluentAssertions.Eventual.Generator/)
